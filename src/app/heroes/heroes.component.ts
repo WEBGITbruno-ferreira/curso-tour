@@ -25,7 +25,8 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    //subscrevendo no observable e tratando o retorno
+   this.heroService.getHeroes().subscribe( varret => this.heroes = varret);
   }
 
   onSelect(hero: Hero): void {
