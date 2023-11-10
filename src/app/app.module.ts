@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -13,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeroesComponent, HeroDetailComponent
   ],
   imports: [
-    BrowserModule, FormsModule, BrowserAnimationsModule
+    BrowserModule, FormsModule, BrowserAnimationsModule,MatToolbarModule, MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
