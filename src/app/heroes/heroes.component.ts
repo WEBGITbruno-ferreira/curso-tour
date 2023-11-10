@@ -1,3 +1,4 @@
+import { MessageService } from './../message.service';
 import { HeroService } from './../hero.service';
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Hero } from './../hero.model';
@@ -16,9 +17,8 @@ export class HeroesComponent implements OnInit {
   selectedHero?: Hero;
 
 
-  constructor (private heroService : HeroService) {
-
-  }
+  constructor (private heroService : HeroService,
+    private messageService : MessageService) { }
 
   ngOnInit(): void {
     this.getHeroes();
@@ -27,10 +27,13 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     //subscrevendo no observable e tratando o retorno
    this.heroService.getHeroes().subscribe( varret => this.heroes = varret);
+
   }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    this.messageService.add('HeroesComponent: Selected '+hero.name)
+
   }
 
 }
