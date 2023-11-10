@@ -1,6 +1,7 @@
+import { HeroService } from './../hero.service';
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Hero } from './../hero.model';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { HEROES } from '../mock-heroes';
 
@@ -9,10 +10,23 @@ import { HEROES } from '../mock-heroes';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss']
 })
-export class HeroesComponent {
+export class HeroesComponent implements OnInit {
 
-  heroes = HEROES
+  heroes: Hero[] = [];
   selectedHero?: Hero;
+
+
+  constructor (private heroService : HeroService) {
+
+  }
+
+  ngOnInit(): void {
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
+  }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
