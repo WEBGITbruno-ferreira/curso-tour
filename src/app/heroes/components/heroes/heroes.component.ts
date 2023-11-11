@@ -1,10 +1,10 @@
 
-import { HeroService } from '../core/services/hero.service';
+import { HeroService } from '../../../core/services/hero.service';
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Hero } from '../core/models/hero.model';
+import { Hero } from '../../../core/models/hero.model';
 import { Component, OnInit } from '@angular/core';
 
-import { HEROES } from '../core/services/mock-heroes';
+import { HEROES } from '../../../core/services/mock-heroes';
 
 @Component({
   selector: 'app-heroes',
