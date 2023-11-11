@@ -14,6 +14,8 @@ export class HeroDetailComponent implements OnInit{
   /*selectedHero : Hero | undefined*/
   selectedHero !: Hero
 
+
+
   constructor(private heroService : HeroService,
     private location: Location,
     private route: ActivatedRoute){}
