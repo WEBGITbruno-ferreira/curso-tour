@@ -7,23 +7,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent, HeroDetailComponent,  DashboardComponent
+    HeroesComponent, HeroDetailComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
 
     BrowserAnimationsModule,
+
+
+    //feature
+    DashboardModule,
+
+    //app
     AppRoutingModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
