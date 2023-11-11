@@ -1,17 +1,4 @@
-<mat-toolbar color="primary">
-
-  <span>Curso Tour Of Heroes </span>
-  <span fxFlex></span>
-
-  <button mat-icon-button  matTooltip="dashboard" aria-label="dashboard" routerLink="/dashboard">
-    <mat-icon>dashboard</mat-icon>
-  </button>
-
-  <button mat-icon-button  matTooltip="List of Heroes" aria-label="Heroes List" routerLink="/heroes">
-    <mat-icon>sports_martial_arts</mat-icon>
-  </button>
-
-</mat-toolbar>
+<app-toolbar [title]="title"></app-toolbar>
 <div class="content" fxLayoutGap="12px">
   <!--<app-heroes></app-heroes>  -->
 
