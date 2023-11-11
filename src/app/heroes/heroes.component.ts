@@ -1,4 +1,4 @@
-import { MessageService } from './../message.service';
+
 import { HeroService } from './../hero.service';
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Hero } from './../hero.model';
@@ -14,11 +14,10 @@ import { HEROES } from '../mock-heroes';
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = [];
-  selectedHero?: Hero;
 
 
   constructor (private heroService : HeroService,
-    private messageService : MessageService) { }
+   ) { }
 
   ngOnInit(): void {
     this.getHeroes();
@@ -30,10 +29,6 @@ export class HeroesComponent implements OnInit {
 
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add('HeroesComponent: Selected '+hero.name)
 
-  }
 
 }

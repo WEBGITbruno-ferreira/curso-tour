@@ -1,16 +1,14 @@
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
-<h2> My Heroes List</h2>
+<h1> My Heroes List</h1>
 
 <ul class="heroes">
   <li *ngFor="let itemOfheroes of heroes"
-  [class.selected]="itemOfheroes === selectedHero"
 
-  (click)="onSelect(itemOfheroes)">
+  routerLink="/heroes/{{itemOfheroes.id}}"
+ >
     <span>{{itemOfheroes.id}}</span> {{itemOfheroes.name}}
   </li>
 </ul>
 
-
-<app-hero-detail [selectedHero]="selectedHero"></app-hero-detail>
 
