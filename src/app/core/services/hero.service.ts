@@ -45,12 +45,17 @@ export class HeroService {
 
 
   /*modo API */
-  getHeroes(): Observable<Hero[]> {
+  getAll(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesurl, { 'headers': this.headers }).pipe( tap((h => this.log("fetched HEROES"))))
   }
 
-  getHero(id: number): Observable<Hero> {
+  getOne(id: number): Observable<Hero> {
     return this.http.get<Hero>(`${this.heroesurl}/${id}`).pipe( tap((h => this.log(`getHero id${id}`))))
+   }
+
+   updateHero(hero : Hero) : Observable<Hero> {
+
+    return this.http.put<Hero>(`${this.heroesurl}/${hero.id}`, hero)
    }
 
   private log(message: string) : void {
