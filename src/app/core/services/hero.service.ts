@@ -7,6 +7,7 @@ import { Observable, of, tap } from 'rxjs';
 import { Hero } from '../models/hero.model';
 import { MessageService } from './message.service';
 import { HEROES } from './mock-heroes';
+import { HttpHeaders } from '@angular/common/http';
 
 /* eslint-disable @typescript-eslint/no-empty-function */
 
@@ -14,6 +15,9 @@ import { HEROES } from './mock-heroes';
   providedIn: 'root'
 })
 export class HeroService {
+
+   private  headers = new HttpHeaders()
+  .set('Authorization', 'BRUNOFERREIRAHERE')
 
 
   private heroesurl = `${environment._apiurl}/api/heroes`;
@@ -42,7 +46,7 @@ export class HeroService {
 
   /*modo API */
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesurl).pipe( tap((h => this.log("fetched HEROES"))))
+    return this.http.get<Hero[]>(this.heroesurl, { 'headers': this.headers }).pipe( tap((h => this.log("fetched HEROES"))))
   }
 
   getHero(id: number): Observable<Hero> {
