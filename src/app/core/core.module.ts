@@ -7,14 +7,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from './components/pagenotfound.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
-const COMPONENTS = [ ToolbarComponent, MessagesComponent, PagenotfoundComponent]
+const COMPONENTS = [ ToolbarComponent, MessagesComponent, PagenotfoundComponent, LoadingComponent]
 const MODULES = [FlexLayoutModule, MaterialModule, RouterModule]
 
 
 @NgModule({
-  declarations: [COMPONENTS ],
+  declarations: [COMPONENTS  ],
   imports: [CommonModule, MODULES],
   exports: [COMPONENTS, MODULES],
 })
