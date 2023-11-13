@@ -1,3 +1,4 @@
+import { LoadingInterceptor } from './interceptos/loading.interceptor';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 
 import { MaterialModule } from '../material/material.module';
@@ -8,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from './components/pagenotfound.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 const COMPONENTS = [ ToolbarComponent, MessagesComponent, PagenotfoundComponent, LoadingComponent]
@@ -18,6 +20,11 @@ const MODULES = [FlexLayoutModule, MaterialModule, RouterModule]
   declarations: [COMPONENTS  ],
   imports: [CommonModule, MODULES],
   exports: [COMPONENTS, MODULES],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoadingInterceptor,
+    multi: true
+  }]
 })
 export class CoreModule {
   //validação se o coremodule já foi importado novamente
