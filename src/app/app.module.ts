@@ -8,8 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 
-import { HeroDetailComponent } from './heroes/components/hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroes/components/heroes/heroes.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HeroesModule } from './heroes/heroes.module';
 
@@ -22,12 +20,12 @@ import { HeroesModule } from './heroes/heroes.module';
   imports: [
     BrowserModule,
     FormsModule,
-
     BrowserAnimationsModule,
+
+    //features
+    DashboardModule,
     HeroesModule,
 
-    //feature
-    DashboardModule,
 
     //app
     AppRoutingModule,
