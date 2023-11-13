@@ -8,8 +8,9 @@ import { HeroDetailComponent } from './components/hero-detail/hero-detail.compon
 
 const routes: Routes = [
 
-  {path: 'heroes', component: HeroesComponent},
-  {path: 'heroes/:id', component: HeroDetailComponent},
+  //vazio por causa do lazy
+  {path: '', component: HeroesComponent},
+  {path: ':id', component: HeroDetailComponent},
 ]
 
 @NgModule({

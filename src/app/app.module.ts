@@ -22,9 +22,9 @@ import { HeroesModule } from './heroes/heroes.module';
     FormsModule,
     BrowserAnimationsModule,
 
-    //features
-    DashboardModule,
-    HeroesModule,
+    //features  //// LAZY LOADING NO APP ROUTING
+    //DashboardModule,
+    //HeroesModule,
 
 
     //app
