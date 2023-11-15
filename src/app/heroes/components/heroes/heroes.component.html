@@ -11,6 +11,10 @@
   </li>
 </ul>-->
 
+<button class="add-button" color="accent"  mat-fab routerLink="new">
+  <mat-icon>add</mat-icon>
+</button>
+
 
 <mat-table [dataSource]="heroes" class="mat-elevation-z8">
   <!-- id  -->
@@ -28,9 +32,6 @@
 
   <!-- Header and Row Declarations -->
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row  class="HOVER" [routerLink]="['/heroes', row.id]"
-  *matRowDef="let row; columns: displayedColumns">
-</mat-row>
+  <mat-row class="HOVER" [routerLink]="['/heroes', row.id]" *matRowDef="let row; columns: displayedColumns">
+  </mat-row>
 </mat-table>
-
-

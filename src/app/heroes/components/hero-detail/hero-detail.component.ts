@@ -14,6 +14,7 @@ export class HeroDetailComponent implements OnInit{
   /*selectedHero : Hero | undefined*/
   selectedHero !: Hero
 
+  isEditing!: boolean
 
 
   constructor(private heroService : HeroService,
@@ -22,11 +23,20 @@ export class HeroDetailComponent implements OnInit{
 
     ngOnInit(): void {
       this.getHero()
+      this.selectedHero = { name : ''} as Hero
     }
 
     getHero() : void {
-      const id = Number(this.route.snapshot.paramMap.get('id'));
+      const paramId = this.route.snapshot.paramMap.get('id')
+      if (paramId === 'new') {
+        this.isEditing = false
+        this.selectedHero = { name : ''} as Hero
+      }else {
+        this.isEditing = true
+      const id = Number(paramId)
       this.heroService.getOne(id).subscribe( hero => this.selectedHero = hero)
+
+      }
     }
 
     goBack(){
@@ -34,10 +44,19 @@ export class HeroDetailComponent implements OnInit{
       return
     }
 
-    save(){
+
+
+    create(){
+      this.heroService.createHero(this.selectedHero).subscribe( (hero)=> this.goBack())
+      return
+    }
+
+
+    update(){
       this.heroService.updateHero(this.selectedHero).subscribe( (hero)=> this.goBack())
       return
     }
+
 
     isFormValid():boolean {
 

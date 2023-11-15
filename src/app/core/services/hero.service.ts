@@ -58,6 +58,12 @@ export class HeroService {
     return this.http.put<Hero>(`${this.heroesurl}/${hero.id}`, hero)
    }
 
+   createHero(hero : Hero) : Observable<Hero> {
+
+    return this.http.post<Hero>(`${this.heroesurl}`, hero).pipe( tap((h => this.log(`create Hero id${hero}`))))
+   }
+
+
   private log(message: string) : void {
     this.messageService.add(`HeroService: ${message}`)
   }
