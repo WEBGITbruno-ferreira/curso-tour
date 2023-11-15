@@ -14,7 +14,7 @@ import { HEROES } from '../../../core/services/mock-heroes';
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = [];
-  displayedColumns: string[] = ['id','name']
+  displayedColumns: string[] = ['id','name', 'actions']
 
   constructor (private heroService : HeroService,
    ) { }
@@ -26,6 +26,23 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     //subscrevendo no observable e tratando o retorno
    this.heroService.getAll().subscribe( varret => this.heroes = varret);
+
+  }
+
+  /* opção de delete
+  deleteHero( hero : Hero): void {
+    //subscrevendo no observable e tratando o retorno
+   this.heroService.deleteHero(hero).subscribe( ()=> {
+    this.heroes = this.heroes.filter(h => h !== hero)
+   });
+
+  } */
+
+  deleteHero( hero : Hero): void {
+    //subscrevendo no observable e tratando o retorno
+   this.heroService.deleteHero(hero).subscribe( ()=> {
+    this.getHeroes()
+   });
 
   }
 

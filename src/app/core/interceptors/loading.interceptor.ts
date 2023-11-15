@@ -20,7 +20,7 @@ export class LoadingInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     if (this.activeRequests === 0) {
-      this.messageService.add("ABRIUUU")
+     // this.messageService.add("ABRIUUU")
       this.loadingService.show();
 
     }
@@ -32,7 +32,7 @@ export class LoadingInterceptor implements HttpInterceptor {
         this.activeRequests--;
 
         if (this.activeRequests ===0){
-          this.messageService.add("FECHOUUU")
+       //   this.messageService.add("FECHOUUU")
           this.loadingService.hide()
         }
     }));

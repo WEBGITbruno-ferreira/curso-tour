@@ -60,11 +60,24 @@ export class HeroService {
 
    createHero(hero : Hero) : Observable<Hero> {
 
-    return this.http.post<Hero>(`${this.heroesurl}`, hero).pipe( tap((h => this.log(`create Hero id${hero}`))))
+    return this.http.post<Hero>(`${this.heroesurl}`, hero)
+    .pipe( tap((h => this.log(`create Hero id${hero}`))))
+   }
+
+
+   deleteHero(hero : Hero) : Observable<any> {
+
+    return this.http.delete<any>(`${this.heroesurl}/${hero.id}`)
+    .pipe( tap((h => this.log(`delted Hero id${hero}`))))
    }
 
 
   private log(message: string) : void {
     this.messageService.add(`HeroService: ${message}`)
+  }
+
+  private getUrl(id: number) : string {
+
+    return ''
   }
 }
