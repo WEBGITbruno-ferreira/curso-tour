@@ -2,21 +2,26 @@
 <!--<div *ngIf="selectedHero"> -->
   <h1>{{ isEditing ? "Update" : "Create"}}  Hero</h1>
 
+  <form [formGroup]="form" novalidate>
   <mat-card >
 
       <mat-card-content fxLayout="column">
+
+
         <mat-form-field *ngIf="isEditing">
           <mat-label>ID</mat-label>
-          <input matInput disabled value="{{selectedHero.id}}">
+          <input matInput  formControlName="id">
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Hero Name</mat-label>
           <input id="name"
           matInput
-          [(ngModel)]="selectedHero.name"
+          formControlName="name"
           placeholder="Name"
           type="text">
+          <mat-error *ngIf="form.controls['name'].hasError('required')"> Name is Required </mat-error>
+          <mat-error *ngIf="form.controls['name'].hasError('minlength')"> Min length is 3 </mat-error>
         </mat-form-field>
 
 
@@ -24,13 +29,13 @@
 
       <mat-card-actions>
 
-    <button mat-raised-button color="primary"  *ngIf="!isEditing" [disabled]="isFormValid()" (click)="create()"> Create</button>
-    <button mat-raised-button color="primary"   *ngIf="isEditing" [disabled]="isFormValid()" (click)="update()"> Update</button>
+    <button mat-raised-button color="primary"  *ngIf="!isEditing"  (click)="create()"> Create</button>
+    <button mat-raised-button color="primary"   *ngIf="isEditing"  (click)="update()"> Update</button>
 
     <button mat-raised-button (click)="goBack()"> Voltar</button>
 
       </mat-card-actions>
 
   </mat-card>
-
+</form>
   <!--</div>-->
