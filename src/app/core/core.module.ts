@@ -14,12 +14,12 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { ConfimationDialogComponent } from './components/confimation-dialog/confimation-dialog.component';
 
 
-const COMPONENTS = [ ToolbarComponent, MessagesComponent, PagenotfoundComponent, LoadingComponent]
+const COMPONENTS = [ ToolbarComponent, MessagesComponent, PagenotfoundComponent, LoadingComponent, ConfimationDialogComponent]
 const MODULES = [FlexLayoutModule, MaterialModule, RouterModule]
 
 
 @NgModule({
-  declarations: [COMPONENTS, ConfimationDialogComponent  ],
+  declarations: [COMPONENTS ],
   imports: [CommonModule, MODULES],
   exports: [COMPONENTS, MODULES],
   providers: [{
