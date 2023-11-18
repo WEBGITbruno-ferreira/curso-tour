@@ -12,6 +12,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { ConfimationDialogComponent } from './components/confimation-dialog/confimation-dialog.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 
 const COMPONENTS = [ ToolbarComponent, MessagesComponent, PagenotfoundComponent, LoadingComponent, ConfimationDialogComponent]
@@ -30,6 +31,11 @@ const MODULES = [FlexLayoutModule, MaterialModule, RouterModule]
   {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpErrorInterceptor,
+    multi: true
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
     multi: true
   }
 ]
