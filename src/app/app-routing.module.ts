@@ -1,6 +1,4 @@
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './heroes/components/hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroes/components/heroes/heroes.component';
+
 import { NgModule } from '@angular/core';
 import { Routes,RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from './core/components/pagenotfound.component';
@@ -15,6 +13,10 @@ const routes: Routes = [
   {path: 'heroes',
   loadChildren: () => import('./heroes/heroes.module').then(m => m.HeroesModule)
  },
+
+ {path: 'login',
+ loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+},
 
  {path: '**',
  component: PagenotfoundComponent

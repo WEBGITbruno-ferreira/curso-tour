@@ -1,7 +1,7 @@
+import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -27,8 +27,10 @@ import { CoreModule } from './core/core.module';
 
 
     //app
+    AuthModule,
     AppRoutingModule,
     CoreModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { AuthGuard } from './../auth/guards/auth.guard';
 
 import { NgModule } from '@angular/core';
 import { Routes,RouterModule } from '@angular/router';
@@ -9,8 +10,8 @@ import { HeroDetailComponent } from './components/hero-detail/hero-detail.compon
 const routes: Routes = [
 
   //vazio por causa do lazy
-  {path: '', component: HeroesComponent},
-  {path: ':id', component: HeroDetailComponent},
+  {path: '', component: HeroesComponent, canActivate : [AuthGuard]},
+  {path: ':id', component: HeroDetailComponent, canActivate : [AuthGuard]},
 ]
 
 @NgModule({

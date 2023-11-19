@@ -1,3 +1,5 @@
+import { AuthService } from './auth/services/auth.service';
+import { Observable } from 'rxjs';
 import { MenuItemInterface } from './core/models/menu-item.model';
 import { Component } from '@angular/core';
 
@@ -7,6 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  isLoggedIn$: Observable<boolean>
   title = 'curso-tour';
 
   menuItems: MenuItemInterface[] = [
@@ -20,4 +23,13 @@ export class AppComponent {
       tollTipText: 'heroes',
     },
   ];
+
+
+  constructor(private authService:AuthService){
+    this.isLoggedIn$ = this.authService.isLoggedin$
+  }
+
+  onLogout() : void {
+    this.authService.logout()
+  }
 }
